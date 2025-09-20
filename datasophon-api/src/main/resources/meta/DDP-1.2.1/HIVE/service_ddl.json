@@ -2,11 +2,11 @@
   "name": "HIVE",
   "label": "Hive",
   "description": "离线数据仓库",
-  "version": "3.1.0",
+  "version": "3.1.3",
   "sortNum": 5,
   "dependencies":["HDFS"],
-  "packageName": "hive-3.1.0.tar.gz",
-  "decompressPackageName": "hive-3.1.0",
+  "packageName": "hive-3.1.3.tar.gz",
+  "decompressPackageName": "hive-3.1.3",
   "roles": [
     {
       "name": "HiveServer2",
@@ -440,10 +440,10 @@
       "configWithKerberos": true,
       "required": false,
       "type": "input",
-      "value": "hive/_HOST@${realm}",
+      "value": "hive/${host}@${realm}",
       "configurableInWizard": true,
       "hidden": true,
-      "defaultValue": "hive/_HOST@${realm}"
+      "defaultValue": "hive/${host}@${realm}"
     },
     {
       "name": "hive.metastore.kerberos.keytab.file",
@@ -551,7 +551,7 @@
       "required": false,
       "configType": "map",
       "type": "input",
-      "value": "",
+      "value": "http://dmp-mng-svr1:6080",
       "configurableInWizard": true,
       "hidden": true,
       "defaultValue": ""
@@ -599,7 +599,7 @@
       "configType": "custom",
       "required": false,
       "type": "multipleWithKey",
-      "value": [{"HIVE_AUX_JARS_PATH":"${INSTALL_PATH}/hive-3.1.0/auxlibs"}],
+      "value": [{"HIVE_AUX_JARS_PATH":"${INSTALL_PATH}/hive-3.1.3/auxlibs"}],
       "configurableInWizard": true,
       "hidden": false,
       "defaultValue": ""
