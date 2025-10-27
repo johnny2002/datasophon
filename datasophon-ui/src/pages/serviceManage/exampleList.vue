@@ -437,10 +437,7 @@ export default {
       let serviceId = { id: this.$route.params.serviceId || "" }
       let roleInstanceIds = this.selectedRowKeys
       let content = (
-        <AddCharacter serviceId={serviceId} callBack={() => {
-          self.pollingSearch();
-          self.getServiceRoleType()
-        }} />
+        <AllotCharacter serviceId={serviceId} roleInstanceIds={roleInstanceIds} callBack={() => self.pollingSearch(), () => { this.selectedRowKeys = [] }} />
       );
       this.$confirm({
         width: width,
