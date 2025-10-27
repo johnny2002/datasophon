@@ -132,7 +132,7 @@ touch service_ddl.json
         "filename": "start.sh",
         "configFormat": "custom",
         "outputDirectory": "bin",
-        "templateName": "minio-run.flt",
+        "templateName": "minio-run.ftl",
         "includeParams": [
           "MINIO_ACCESS_KEY",
           "MINIO_SECRET_KEY",
@@ -211,11 +211,11 @@ touch service_ddl.json
 }
 ```
 
-各worker几点创建minio-run.flt文件
+各worker几点创建minio-run.ftl文件
 
 ```shell
 cd /opt/datasophon/datasophon-worker/conf/templates
-touch minio-run.flt
+touch minio-run.ftl
 ```
 
 ```shell
