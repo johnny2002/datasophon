@@ -3,10 +3,11 @@
 # 定义启动和停止命令
 START_MASTER="/opt/datasophon/redis/redis-server /opt/datasophon/redis/cluster/conf/redis-master.conf"
 START_SLAVE="/opt/datasophon/redis/redis-server /opt/datasophon/redis/cluster/conf/redis-slave.conf"
-STOP_MASTER="/opt/datasophon/redis/redis-cli -p ${redisMasterPort} shutdown"
-STOP_SLAVE="/opt/datasophon/redis/redis-cli -p ${redisSlavePort} shutdown"
-STATUS_MASTER="/opt/datasophon/redis/redis-cli -p ${redisMasterPort} ping"
-STATUS_SLAVE="/opt/datasophon/redis/redis-cli -p ${redisSlavePort} ping"
+<#list itemList as item><#if item.name == 'requirepass'><#assign requirepass="${item.value}"></#if></#list>
+STOP_MASTER="/opt/datasophon/redis/redis-cli -p ${redisMasterPort} <#if requirepass??>-a ${requirepass}</#if> shutdown"
+STOP_SLAVE="/opt/datasophon/redis/redis-cli -p ${redisSlavePort} <#if requirepass??>-a ${requirepass}</#if> shutdown"
+STATUS_MASTER="/opt/datasophon/redis/redis-cli -p ${redisMasterPort} <#if requirepass??>-a ${requirepass}</#if> ping"
+STATUS_SLAVE="/opt/datasophon/redis/redis-cli -p ${redisSlavePort} <#if requirepass??>-a ${requirepass}</#if> ping"
 
 # 启动Master
 start_master() {

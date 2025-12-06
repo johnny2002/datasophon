@@ -82,7 +82,8 @@
         "templateName": "redis-control.ftl",
         "includeParams": [
           "redisMasterPort",
-          "redisSlavePort"
+          "redisSlavePort",
+          "custom.master.conf"
         ]
       },
       {
