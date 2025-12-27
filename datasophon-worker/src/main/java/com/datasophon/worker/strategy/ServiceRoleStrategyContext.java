@@ -58,6 +58,7 @@ public class ServiceRoleStrategyContext {
         
         // DolphinScheduler
         map.put("MasterServer", new DSMasterHandlerStrategy("DS", "MasterServer"));
+        map.put("ClickHouse", new ClickHouseHandlerStrategy("CLICKHOUSE", "ClickHouse"));
     }
     
     public static ServiceRoleStrategy getServiceRoleHandler(String type) {
