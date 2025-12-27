@@ -23,20 +23,20 @@ public class ClickHouseHandlerStrategy extends AbstractHandlerStrategy implement
         if (command.getCommandType().equals(CommandType.INSTALL_SERVICE)) {
             ArrayList<String> commands = new ArrayList<>();
 
-            logger.info("/clickhouse-common-static-23.9.1.1854/install/doinst.sh");
-            commands.add(workPath + "/clickhouse-common-static-23.9.1.1854/install/doinst.sh");
+            logger.info("/clickhouse-common-static/install/doinst.sh");
+            commands.add(workPath + "/clickhouse-common-static/install/doinst.sh");
             ShellUtils.execWithStatus(workPath, commands, 300L, logger);
             logger.info("clickhouse common static install success");
 
-            logger.info("/clickhouse-common-static-dbg-23.9.1.1854/install/doinst.sh");
+            logger.info("/clickhouse-common-static-dbg/install/doinst.sh");
             commands.clear();
-            commands.add(workPath + "/clickhouse-common-static-dbg-23.9.1.1854/install/doinst.sh");
+            commands.add(workPath + "/clickhouse-common-static-dbg/install/doinst.sh");
             ShellUtils.execWithStatus(workPath, commands, 300L, logger);
             logger.info("clickhouse common static dbg install success");
 
-            logger.info("/clickhouse-server-23.9.1.1854/install/doinst.sh configure");
+            logger.info("/clickhouse-server/install/doinst.sh configure");
             commands.clear();
-            commands.add(workPath + "/clickhouse-server-23.9.1.1854/install/doinst.sh");
+            commands.add(workPath + "/clickhouse-server/install/doinst.sh");
             commands.add("configure");
             ShellUtils.execWithStatus(workPath, commands, 300L, logger);
 
@@ -47,9 +47,9 @@ public class ClickHouseHandlerStrategy extends AbstractHandlerStrategy implement
             ShellUtils.exceShell("chown clickhouse:clickhouse /etc/clickhouse-server/config.xml /etc/clickhouse-server/users.xml");
             logger.info("clickhouse server install success");
 
-            logger.info("/clickhouse-client-23.9.1.1854/install/doinst.sh");
+            logger.info("/clickhouse-client/install/doinst.sh");
             commands.clear();
-            commands.add(workPath + "/clickhouse-client-23.9.1.1854/install/doinst.sh");
+            commands.add(workPath + "/clickhouse-client/install/doinst.sh");
             ShellUtils.execWithStatus(workPath, commands, 300L, logger);
             logger.info("clickhouse client install success");
 
