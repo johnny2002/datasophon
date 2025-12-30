@@ -1,0 +1,122 @@
+{
+  "name": "DINKY",
+  "label": "Dinky",
+  "description": "流处理极速开发框架,流批一体&湖仓一体的云原生平台,一站式计算平台",
+  "version": "1.2.5",
+  "sortNum": 19,
+  "dependencies":[],
+  "packageName": "dinky-1.2.5.tar.gz",
+  "decompressPackageName": "dinky-1.2.5",
+  "roles": [
+    {
+      "name": "Dinky",
+      "label": "Dinky",
+      "roleType": "master",
+      "cardinality": "1",
+      "logFile": "logs/dinky.log",
+      "jmxPort": 10087,
+      "startRunner": {
+        "timeout": "60",
+        "program": "bin/auto.sh",
+        "args": [
+          "startWithJmx",
+          "1.16"
+        ]
+      },
+      "stopRunner": {
+        "timeout": "600",
+        "program": "bin/auto.sh",
+        "args": [
+          "stop"
+        ]
+      },
+      "statusRunner": {
+        "timeout": "60",
+        "program": "bin/auto.sh",
+        "args": [
+          "status"
+        ]
+      },
+      "restartRunner": {
+        "timeout": "60",
+        "program": "bin/auto.sh",
+        "args": [
+          "restart",
+          "1.16"
+        ]
+      },
+      "externalLink": {
+        "name": "Dinky Ui",
+        "label": "Dinky Ui",
+        "url": "http://${host}:${serverPort}"
+      }
+    }
+  ],
+  "configWriter": {
+    "generators": [
+      {
+        "filename": "application-mysql.yml",
+        "configFormat": "custom",
+        "outputDirectory": "config",
+        "templateName": "dinky.ftl",
+        "includeParams": [
+          "databaseUrl",
+          "username",
+          "password",
+          "serverPort"
+        ]
+      }
+    ]
+  },
+  "parameters": [
+    {
+      "name": "databaseUrl",
+      "label": "Dinky数据库地址",
+      "description": "",
+      "configType": "map",
+      "required": true,
+      "type": "input",
+      "value": "",
+      "configurableInWizard": true,
+      "hidden": false,
+      "defaultValue": "jdbc:mysql://${apiHost}:3306/dinky?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true"
+    },
+    {
+      "name": "username",
+      "label": "Dinky数据库用户名",
+      "description": "",
+      "configType": "map",
+      "required": true,
+      "type": "input",
+      "value": "",
+      "configurableInWizard": true,
+      "hidden": false,
+      "defaultValue": "root"
+    },
+    {
+      "name": "password",
+      "label": "Dinky数据库密码",
+      "description": "",
+      "configType": "map",
+      "required": true,
+      "type": "input",
+      "value": "",
+      "configurableInWizard": true,
+      "hidden": false,
+      "defaultValue": "123456"
+    },
+    {
+      "name": "serverPort",
+      "label": "Dinky服务端口",
+      "description": "",
+      "configType": "map",
+      "required": true,
+      "type": "input",
+      "value": "",
+      "configurableInWizard": true,
+      "hidden": false,
+      "defaultValue": "8888"
+    }
+
+  ]
+}
