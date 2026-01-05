@@ -125,6 +125,10 @@ scrape_configs:
     file_sd_configs:
      - files:
        - configs/starrocks.json
+  - job_name: 'clickhouse'
+    file_sd_configs:
+    - files:
+      - configs/clickhouse.json  # ClickHouse 监控目标配置文件
   - job_name: 'doris'
     metrics_path: '/metrics'
     file_sd_configs:
