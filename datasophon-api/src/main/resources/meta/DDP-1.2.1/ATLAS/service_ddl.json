@@ -1,0 +1,114 @@
+{
+  "name": "ATLAS",
+  "label": "Atlas",
+  "description": "开源数据治理与元数据管理框架",
+  "version": "4.0.0",
+  "sortNum": 36,
+  "dependencies": ["HDFS", "KAFKA", "ZOOKEEPER", "HBASE"],
+  "packageName": "apache-atlas-4.0.0.tar.gz",
+  "decompressPackageName": "apache-atlas-4.0.0",
+  "roles": [
+    {
+      "name": "AtlasServer",
+      "label": "Atlas Server",
+      "roleType": "master",
+      "cardinality": "1+",
+      "logFile": "${ATLAS_HOME}/logs/application.log",
+      "jmxPort": 21000,
+      "startRunner": {
+        "timeout": "300",
+        "program": "bin/atlas_server.sh",
+        "args": ["start"]
+      },
+      "stopRunner": {
+        "timeout": "300",
+        "program": "bin/atlas_server.sh",
+        "args": ["stop"]
+      },
+      "statusRunner": {
+        "timeout": "60",
+        "program": "bin/atlas_server.sh",
+        "args": ["status"]
+      },
+      "externalLink": {
+        "name": "Atlas UI",
+        "label": "Atlas UI",
+        "url": "http://${host}:21000"
+      }
+    }
+  ],
+  "configWriter": {
+    "generators": [
+      {
+        "filename": "atlas-application.properties",
+        "configFormat": "custom",
+        "outputDirectory": "conf",
+        "templateName": "atlas-application.properties.ftl",
+        "includeParams": [
+          "atlas.graph.storage.hostname",
+          "atlas.kafka.bootstrap.servers",
+          "atlas.server.port",
+          "atlas.authentication.method.ldap.url"
+        ]
+      },
+      {
+        "filename": "atlas-env.sh",
+        "configFormat": "custom",
+        "outputDirectory": "conf",
+        "templateName": "atlas-env.ftl",
+        "includeParams": [
+          "atlas_jvm_opts",
+          "hadoop_conf_dir"
+        ]
+      }
+    ]
+  },
+  "parameters": [
+    {
+      "name": "atlas.graph.storage.hostname",
+      "label": "图存储地址",
+      "description": "HBase Zookeeper地址，用于存储图数据",
+      "required": true,
+      "type": "multiple",
+      "separator": ",",
+      "value": [],
+      "configurableInWizard": true,
+      "hidden": false,
+      "defaultValue": "${zkQuorum}"
+    },
+    {
+      "name": "atlas.kafka.bootstrap.servers",
+      "label": "Kafka集群地址",
+      "description": "Kafka地址，用于消息通知",
+      "required": true,
+      "type": "multiple",
+      "separator": ",",
+      "value": [],
+      "configurableInWizard": true,
+      "hidden": false,
+      "defaultValue": "${kafkaBrokers}"
+    },
+    {
+      "name": "atlas.server.port",
+      "label": "服务端口",
+      "description": "Atlas Server HTTP端口",
+      "required": true,
+      "type": "input",
+      "value": "21000",
+      "configurableInWizard": true,
+      "hidden": false,
+      "defaultValue": "21000"
+    },
+    {
+      "name": "atlas.authentication.method.ldap.url",
+      "label": "LDAP服务器地址",
+      "description": "LDAP认证服务器地址",
+      "required": false,
+      "type": "input",
+      "value": "",
+      "configurableInWizard": true,
+      "hidden": false,
+      "defaultValue": ""
+    }
+  ]
+}
