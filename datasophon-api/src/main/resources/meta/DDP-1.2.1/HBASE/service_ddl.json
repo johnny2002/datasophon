@@ -2,11 +2,11 @@
   "name": "HBASE",
   "label": "HBase",
   "description": "分布式列式海量存储数据库",
-  "version": "2.4.16",
+  "version": "2.5.13",
   "sortNum": 8,
   "dependencies":["HDFS"],
-  "packageName": "hbase-2.4.16.tar.gz",
-  "decompressPackageName": "hbase-2.4.16",
+  "packageName": "hbase-2.5.13.tar.gz",
+  "decompressPackageName": "hbase-2.5.13",
   "runAs":"root",
   "roles": [
     {
