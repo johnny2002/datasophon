@@ -20,12 +20,12 @@ atlas.graph.storage.backend=hbase2
 atlas.graph.storage.hbase.ext.zookeeper.znode.parent=/hbase
 atlas.graph.storage.hbase.regions-per-server=1
 atlas.graph.storage.hbase.table=apache_atlas_janus
-atlas.graph.storage.hostname=${atlas.graph.storage.hostname}
+atlas.graph.storage.hostname=${atlas_graph_storage_hostname}
 atlas.search.gremlin.enable=false
 
 atlas.kafka.auto.commit.interval.ms=1000
 atlas.kafka.auto.offset.reset=earliest
-atlas.kafka.bootstrap.servers=${atlas.kafka.bootstrap.servers}
+atlas.kafka.bootstrap.servers=${atlas_kafka_bootstrap_servers}
 atlas.kafka.zookeeper.connect=${zkQuorum}
 atlas.kafka.zookeeper.connection.timeout.ms=200
 atlas.kafka.data=${atlas_home}/data/kafka
@@ -56,8 +56,8 @@ atlas.server.ha.enabled=false
 # atlas.server.address=host1.example.com:21000
 
 atlas.enableTLS=false
-atlas.rest.address=http://${host}:${atlas.server.port}
-atlas.server.port=${atlas.server.port}
+atlas.rest.address=http://${host}:${atlas_server_port}
+atlas.server.port=${atlas_server_port}
 atlas.ui.default.version=v1
 atlas.rest-csrf.browser-useragents-regex=^Mozilla.*,^Opera.*,^Chrome.*
 atlas.rest-csrf.custom-header=X-XSRF-HEADER

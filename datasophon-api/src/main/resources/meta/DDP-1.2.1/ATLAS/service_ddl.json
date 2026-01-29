@@ -45,10 +45,10 @@
         "outputDirectory": "conf",
         "templateName": "atlas-application.properties.ftl",
         "includeParams": [
-          "atlas.graph.storage.hostname",
-          "atlas.kafka.bootstrap.servers",
-          "atlas.server.port",
-          "atlas.authentication.method.ldap.url"
+          "atlas_graph_storage_hostname",
+          "atlas_kafka_bootstrap_servers",
+          "atlas_server_port",
+          "atlas_authentication_method_ldap_url"
         ]
       },
       {
@@ -65,7 +65,7 @@
   },
   "parameters": [
     {
-      "name": "atlas.graph.storage.hostname",
+      "name": "atlas_graph_storage_hostname",
       "label": "图存储地址",
       "description": "HBase Zookeeper地址，用于存储图数据",
       "required": true,
@@ -77,7 +77,7 @@
       "defaultValue": "${zkQuorum}"
     },
     {
-      "name": "atlas.kafka.bootstrap.servers",
+      "name": "atlas_kafka_bootstrap_servers",
       "label": "Kafka集群地址",
       "description": "Kafka地址，用于消息通知",
       "required": true,
@@ -89,7 +89,7 @@
       "defaultValue": "${kafkaBrokers}"
     },
     {
-      "name": "atlas.server.port",
+      "name": "atlas_server_port",
       "label": "服务端口",
       "description": "Atlas Server HTTP端口",
       "required": true,
@@ -100,7 +100,7 @@
       "defaultValue": "21000"
     },
     {
-      "name": "atlas.authentication.method.ldap.url",
+      "name": "atlas_authentication_method_ldap_url",
       "label": "LDAP服务器地址",
       "description": "LDAP认证服务器地址",
       "required": false,
