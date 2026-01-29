@@ -2,11 +2,11 @@
   "name": "ATLAS",
   "label": "Atlas",
   "description": "开源数据治理与元数据管理框架",
-  "version": "4.0.0",
+  "version": "2.4.0",
   "sortNum": 36,
   "dependencies": ["HDFS", "KAFKA", "ZOOKEEPER", "HBASE"],
-  "packageName": "apache-atlas-4.0.0.tar.gz",
-  "decompressPackageName": "apache-atlas-4.0.0",
+  "packageName": "atlas-2.4.0.tar.gz",
+  "decompressPackageName": "atlas-2.4.0",
   "roles": [
     {
       "name": "AtlasServer",
